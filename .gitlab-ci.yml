@@ -10,7 +10,8 @@ build:
   stage: build
   script:
     - echo "This is the build stage"
-    - apt-get install openssh-server
+    - apt-get update
+    - apt-get install -y -qq openssh-server
     - bundle install --deployment
     - ls -l
     - cap staging deploy
