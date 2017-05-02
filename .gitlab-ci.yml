@@ -4,7 +4,6 @@ before_script:
   - whoami
   - ruby -v
   - which ruby
-  - gem install bundler --no-ri --no-rdoc
   - bundle install
 
 test:
