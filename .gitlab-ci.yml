@@ -6,20 +6,26 @@ before_script:
   - which ruby
   - bundle install
 
-test:
-  stage: test
-  script:
-    - echo "This is test stage"
-
 build:
   stage: build
   script:
     - echo "This is the build stage"
 
+test:
+  stage: test
+  script:
+    - echo "This is test stage"
+  cache:
+    paths:
+      - vendor/bundle
+
 staging:
   stage: deploy
   script:
     - echo "This is the staging stage"
-    - cap deploy staging
+    - cap staging deploy
+  cache:
+    paths:
+      - vendor/bundle
   only:
     - stage
