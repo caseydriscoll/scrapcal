@@ -2,6 +2,7 @@ image: ruby:2.3
 
 before_script:
   - whoami
+  - pwd
   - ruby -v
   - which ruby
 
@@ -10,6 +11,8 @@ build:
   script:
     - echo "This is the build stage"
     - bundle install --deployment
+    - ls -l
+    - cap staging deploy:check
 
 test:
   stage: test
