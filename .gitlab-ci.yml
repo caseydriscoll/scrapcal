@@ -11,12 +11,15 @@ before_script:
   - ruby -v
   - which ruby
   - ls -l
+  - bundle install --path /cache
+
+
+
 
 build:
   stage: build
   script:
     - echo "This is the build stage"
-    - bundle install --path /cache
 
 test:
   stage: test
