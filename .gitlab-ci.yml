@@ -24,8 +24,6 @@ staging:
   stage: deploy
   script:
     - echo "This is the staging stage"
-    - apt-get update
-    - apt-get install -y -qq openssh-server
     - cap staging deploy
   only:
     - stage
