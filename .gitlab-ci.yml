@@ -8,11 +8,11 @@ before_script:
   - ruby -v
   - which ruby
   - ls -l
-  - rbenv versions
   - git clone https://github.com/rbenv/rbenv.git ~/.rbenv
   - echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
   - ~/.rbenv/bin/rbenv init
   - gem install bundler
+  - rbenv install --skip-existing `cat .ruby-version`
   - bundle install --path vendor/bundle
 
 build:
