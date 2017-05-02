@@ -1,37 +1,34 @@
 image: ruby:2.4
 
+
+cache:
+  paths:
+    - vendor/bundle
+
 before_script:
   - whoami
   - pwd
   - ruby -v
   - which ruby
+  - ls -l
 
 build:
   stage: build
   script:
     - echo "This is the build stage"
-    - apt-get update
-    - apt-get install -y -qq openssh-server
     - bundle install --deployment
-    - ls -l
-    - cap staging deploy
 
 test:
   stage: test
   script:
     - echo "This is test stage"
-    - ls -l
-  cache:
-    paths:
-      - vendor/bundle
 
 staging:
   stage: deploy
   script:
     - echo "This is the staging stage"
+    - apt-get update
+    - apt-get install -y -qq openssh-server
     - cap staging deploy
-  cache:
-    paths:
-      - vendor/bundle
   only:
     - stage
