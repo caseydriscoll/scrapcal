@@ -18,6 +18,7 @@ test:
   stage: test
   script:
     - echo "This is test stage"
+    - ls -l
   cache:
     paths:
       - vendor/bundle
