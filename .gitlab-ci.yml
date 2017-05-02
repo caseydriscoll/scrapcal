@@ -8,6 +8,7 @@ before_script:
   - ruby -v
   - which ruby
   - ls -l
+  - gem install bundler
   - bundle install --path vendor/bundle
 
 build:
