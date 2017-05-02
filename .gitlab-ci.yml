@@ -8,7 +8,7 @@ before_script:
   - rbenv install --skip-existing `cat .ruby-version`
   - gem install bundler
   - bundle install --path vendor/bundle
-  - git clone https://git.caseydris.co/casey/runner-steps.git steps
+  - git clone https://git.caseydris.co/casey/rails-runner.git steps
   - chmod -R 775 steps
   - export CI_RELEASE=$(date +%Y%m%d%H%M%S)
 
