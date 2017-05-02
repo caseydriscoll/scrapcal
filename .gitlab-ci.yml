@@ -4,12 +4,12 @@ before_script:
   - whoami
   - ruby -v
   - which ruby
-  - bundle install
 
 build:
   stage: build
   script:
     - echo "This is the build stage"
+    - bundle install --deployment
 
 test:
   stage: test
