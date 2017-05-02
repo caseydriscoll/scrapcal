@@ -3,16 +3,14 @@ cache:
     - vendor/bundle
 
 before_script:
-  - whoami
-  - pwd
   - ruby -v
   - which ruby
-  - ls -l
-  - which rbenv
-  - rbenv versions
   - rbenv install --skip-existing `cat .ruby-version`
   - gem install bundler
   - bundle install --path vendor/bundle
+  - git clone https://git.caseydris.co/casey/runner-steps.git steps
+  - chmod -R 775 steps
+  - export CI_RELEASE=$(date +%Y%m%d%H%M%S)
 
 build:
   stage: build
@@ -28,6 +26,6 @@ staging:
   stage: deploy
   script:
     - echo "This is the staging stage"
-    - bundle exec cap staging deploy branch=stage
+    - steps/deploy $STAGE_PATH $CI_RELEASE
   only:
     - stage
