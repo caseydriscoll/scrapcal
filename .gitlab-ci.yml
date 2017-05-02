@@ -1,9 +1,6 @@
-image: ruby:2.4
-
-
 cache:
   paths:
-    - /cache
+    - vendor/bundle
 
 before_script:
   - whoami
@@ -11,10 +8,7 @@ before_script:
   - ruby -v
   - which ruby
   - ls -l
-  - bundle install --path /cache
-
-
-
+  - bundle install --path vendor/bundle
 
 build:
   stage: build
