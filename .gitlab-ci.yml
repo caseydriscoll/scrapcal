@@ -3,7 +3,7 @@ image: ruby:2.4
 
 cache:
   paths:
-    - vendor/bundle
+    - /cache
 
 before_script:
   - whoami
@@ -16,7 +16,7 @@ build:
   stage: build
   script:
     - echo "This is the build stage"
-    - bundle install --deployment
+    - bundle install --path /cache
 
 test:
   stage: test
