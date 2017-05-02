@@ -1,4 +1,6 @@
 staging:
-  deploy: "cap deploy staging"
+  type: deploy
+  script:
+    - "cap deploy staging"
   only:
     - stage
