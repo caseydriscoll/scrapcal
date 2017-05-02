@@ -9,6 +9,7 @@ server "localhost", user: "deploy", roles: %w{app db web}
 
 
 set :branch, 'stage'
+set :scm, :gitcopy
 set :deploy_to, "/opt/scrapcal.com/stage"
 
 
