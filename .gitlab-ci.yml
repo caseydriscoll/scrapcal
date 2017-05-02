@@ -6,17 +6,17 @@ before_script:
   - bundle install
 
 test:
-  type: test
+  stage: test
   script:
     - echo "This is test stage"
 
 build:
-  type: build
+  stage: build
   script:
     - echo "This is the build stage"
 
 staging:
-  type: deploy
+  stage: deploy
   script:
     - echo "This is the staging stage"
     - cap deploy staging
