@@ -28,6 +28,6 @@ staging:
   stage: deploy
   script:
     - echo "This is the staging stage"
-    - cap staging deploy
+    - bundle exec cap staging deploy
   only:
     - stage
