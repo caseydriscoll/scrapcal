@@ -1,0 +1,4 @@
+staging:
+  deploy: "cap deploy staging"
+  only:
+    - stage
