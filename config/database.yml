@@ -28,6 +28,7 @@ staging:
   username: <%= ENV["STAGE_DB_USERNAME"] %>
   password: <%= ENV["STAGE_DB_PASSWORD"] %>
   timeout: 5000
+  socket: /var/run/mysqld/mysqld.sock
 
 production:
   <<: *default
