@@ -26,6 +26,7 @@ staging:
   stage: deploy
   script:
     - echo "This is the staging stage"
+    - bundle config
     - steps/deploy $STAGE_PATH $CI_RELEASE staging
   only:
     - stage
