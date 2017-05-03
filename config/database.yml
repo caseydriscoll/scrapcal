@@ -21,9 +21,12 @@ test:
   database: db/test.sqlite3
 
 staging:
-  adapter: sqlite3
-  database: db/staging.sqlite3
-  pool: 5
+  adapter: mysql2
+  encoding: utf8
+  database: <%= ENV["STAGE_DB_DATABASE"] %>
+  host: localhost
+  username: <%= ENV["STAGE_DB_USERNAME"] %>
+  password: <%= ENV["STAGE_DB_PASSWORD"] %>
   timeout: 5000
 
 production:
