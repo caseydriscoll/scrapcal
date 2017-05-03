@@ -26,6 +26,6 @@ staging:
   stage: deploy
   script:
     - echo "This is the staging stage"
-    - steps/deploy $STAGE_PATH $CI_RELEASE
+    - steps/deploy $STAGE_PATH $CI_RELEASE staging
   only:
     - stage
