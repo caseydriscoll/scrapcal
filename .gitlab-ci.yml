@@ -6,6 +6,7 @@ before_script:
   - ruby -v
   - which ruby
   - rbenv install --skip-existing `cat .ruby-version`
+  - rbenv rehash
   - gem install bundler
   - bundle install --path vendor/bundle
   - git clone https://git.caseydris.co/casey/rails-runner.git steps
