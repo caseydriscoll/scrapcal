@@ -43,3 +43,13 @@ namespace :deploy do
 end
 
 after "deploy:finished", 'deploy:say'
+
+namespace :deploy do
+  desc 'Populates the database with users after migrated'
+  task :populate do
+    rake db:populate
+  end
+end
+
+after "deploy:migrate", 'deploy:populate'
+
