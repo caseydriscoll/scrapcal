@@ -6,11 +6,7 @@ before_script:
   - rbenv install --skip-existing `cat .ruby-version`
   - rbenv rehash
   - gem install bundler
-  - bundle install --deployment
-  - bundle exec rake routes
-  - git clone https://git.caseydris.co/casey/rails-runner.git steps
-  - chmod -R 775 steps
-  - export CI_RELEASE=$(date +%Y%m%d%H%M%S)
+  - bundle install
 
 build:
   stage: build
@@ -26,8 +22,6 @@ staging:
   stage: deploy
   script:
     - echo "This is the staging stage"
-    - echo $PATH
-    - bundle config
-    - steps/deploy $STAGE_PATH $CI_RELEASE staging
+    - bundle exec cap staging deploy
   only:
     - stage
