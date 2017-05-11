@@ -22,7 +22,7 @@
   </div>
 
   <p>
-    <%= image_tag @photo.image_url(:thumb) if @photo.image? %>
+    <%= image_tag @photo.image_url(:medium) if @photo.image? %>
     <%= f.label :image %>
     <%= f.file_field :image %>
   </p>
