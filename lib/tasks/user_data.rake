@@ -6,6 +6,6 @@ namespace :db do
                  password: ENV["SCRAPCAL_ADMIN_PASS"],
                  password_confirmation: ENV["SCRAPCAL_ADMIN_PASS"])
 
-    user.create! if ! User.exists?(:email => user.email)
+    user.save if ! User.exists?(:email => user.email)
   end
 end
