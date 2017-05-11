@@ -12,6 +12,7 @@
 
 <p>
   <strong>Image:</strong>
+  <%= image_tag @photo.image_url(:thumb) if @photo.image? %>
 </p>
 
 <p>
