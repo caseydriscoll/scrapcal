@@ -16,7 +16,7 @@
   <tbody>
     <% @photos.each do |photo| %>
       <tr>
-        <td><%= image_tag photo.image_url(:thumb) if photo.image? %></td>
+        <td><%= link_to photo.image.url do image_tag photo.image_url(:thumb) end if photo.image? %></td>
         <td><%= photo.title %></td>
         <td><%= photo.caption %></td>
         <td><%= photo.date %></td>
