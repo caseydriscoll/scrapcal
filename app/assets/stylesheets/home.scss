@@ -1,3 +1,53 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.simple-calendar {
+
+  text-align: center;
+
+  table {
+
+    width: 100%; max-width: 900px;
+    margin: 0 auto;
+    border-spacing: 0;
+    border: 1px solid black;
+    border-width: 0 0 1px 1px;
+
+    th, td {
+      position: relative;
+      width: 14%; height: auto;
+      padding: 0 0 14% 0; margin: 0;
+      text-align: center;
+      border: 1px solid black;
+      border-width: 1px 1px 0 0;
+
+      &.prev-month, &.next-month {
+        background: #eee;
+      }
+
+      date {
+        display: block;
+        position: absolute;
+        right: 0; bottom: 0;
+        z-index: 100;
+        padding: 2px;
+        background: white;
+        text-align: center;
+        font-size: 10px;
+        line-height: 10px;
+
+      }
+
+      div {
+        position: absolute;
+        left: 0; right: 0; top: 0; bottom: 0;
+        background-size: cover;
+      }
+    }
+
+    th {
+      padding: 0;
+    }
+  }
+}

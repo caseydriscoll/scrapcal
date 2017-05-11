@@ -1,2 +1,8 @@
-<h1>Home#index Success!</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<%= month_calendar(attribute: :date, events: @photos )do |date, photos| %>
+  <date><%= date %></date>
+
+  <% photos.each do |photo| %>
+    <div style="background-image: url('<%= photo.image.url(:thumb) %>')">
+    </div>
+  <% end %>
+<% end %>
