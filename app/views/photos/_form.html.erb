@@ -22,6 +22,7 @@
   </div>
 
   <p>
+    <%= image_tag @photo.image_url(:thumb) if @photo.image? %>
     <%= f.label :image %>
     <%= f.file_field :image %>
   </p>
