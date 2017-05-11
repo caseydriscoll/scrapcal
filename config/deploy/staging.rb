@@ -62,3 +62,14 @@ set :ssh_options, {
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+
+desc 'Runs rake db:populate if migrations are set'
+task :migrate => [:set_rails_env] do
+  on primary fetch(:migration_role) do
+    within release_path do
+      with rails_env: fetch(:rails_env) do
+        execute :rake, "db:populate"
+      end
+    end
+  end
+end
