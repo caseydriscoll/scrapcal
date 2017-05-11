@@ -47,7 +47,13 @@ after "deploy:finished", 'deploy:say'
 namespace :deploy do
   desc 'Populates the database with users after migrated'
   task :populate do
-    rake db:populate
+    on roles(:all), in: :sequence do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :rake, 'db:populate'
+        end
+      end
+    end
   end
 end
 
