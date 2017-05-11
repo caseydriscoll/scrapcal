@@ -1,5 +1,6 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
+  before_action :set_date, only: [:update]
 
   # GET /photos
   # GET /photos.json
@@ -25,6 +26,8 @@ class PhotosController < ApplicationController
   # POST /photos.json
   def create
     @photo = Photo.new(photo_params)
+
+    set_date
 
     if current_user.present?
       @photo.user_id = current_user.id
@@ -75,6 +78,10 @@ class PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:title, :caption, :user_id, :date, :image)
+      params.require(:photo).permit(:title, :caption, :user_id, :image)
+    end
+
+    def set_date
+      @photo.date = EXIFR::JPEG.new(@photo.image.path).date_time
     end
 end

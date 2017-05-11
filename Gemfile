@@ -42,8 +42,9 @@ gem 'dotenv-rails'
 
 gem 'devise', '~> 4.0'
 
-gem "rmagick"
-gem "carrierwave"
+gem 'rmagick'
+gem 'carrierwave'
+gem 'exifr'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
