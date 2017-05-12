@@ -3,12 +3,29 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .simple-calendar {
-
+  max-width: 900px;
+  margin: 0 auto;
   text-align: center;
+
+  div.calendar-heading {
+    position: relative;
+    padding: 5px 10px;
+
+    span {
+      display: block; position: absolute;
+      left: 0; top: 15px;
+      font-size: 21px;
+    }
+
+    a {
+      display: inline-block;
+      padding: 10px; margin: 0;
+    }
+  }
 
   table {
 
-    width: 100%; max-width: 900px;
+    width: 100%;
     margin: 0 auto;
     border-spacing: 0;
     border: 1px solid black;
@@ -27,16 +44,14 @@
       }
 
       date {
-        display: block;
-        position: absolute;
-        right: 0; bottom: 0;
+        display: block; position: absolute;
+        right: 0; top: 0;
         z-index: 100;
-        padding: 2px;
-        background: white;
+        padding: 10px 5px;
         text-align: center;
-        font-size: 10px;
+        font-size: 20px;
         line-height: 10px;
-
+        text-shadow: 0 0 1px white;
       }
 
       div {
