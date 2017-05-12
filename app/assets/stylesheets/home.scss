@@ -75,10 +75,36 @@ ul.menu {
         text-shadow: 0 0 1px white;
       }
 
-      div {
-        position: absolute;
-        left: 0; right: 0; top: 0; bottom: 0;
-        background-size: cover;
+      &.current-month {
+        a {
+          position: absolute;
+          left: 0; right: 0; top: 0; bottom: 0;
+          background-size: cover;
+
+          &:hover {
+            opacity: .5;
+          }
+
+          &.new:hover {
+          background: lightgreen;
+
+          &:before {
+            content: "";
+            display: block; position: absolute;
+            width: 44%; height: 6%;
+            left: 28%; top: 47%;
+            background: darkgreen;
+          }
+
+          &:after {
+            content: "";
+            display: block; position: absolute;
+            width: 6%; height: 44%;
+            left: 47%; top: 28%;
+            background: darkgreen;
+          }
+        }
+        }
       }
     }
 

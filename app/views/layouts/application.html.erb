@@ -10,16 +10,16 @@
 
   <body>
     <div class="container">
-      <% if flash[:notice]  %>
-        <p class="notice"><%= notice %></p>
-      <% end %>
-      <% if flash[:alert]  %>
-        <p class="alert"><%= alert %></p>
-      <% end %>
       <ul class="menu">
       <% if user_signed_in? %>
         <li><%= link_to( 'Calendar', root_path ) %></li>
         <li><%= link_to( 'Photos', photos_path ) %></li>
+        <% if flash[:notice]  %>
+          <li class="notice"><%= notice %></li>
+        <% end %>
+        <% if flash[:alert]  %>
+          <li class="alert"><%= alert %></li>
+        <% end %>
         <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
       <% end %>
       </ul>

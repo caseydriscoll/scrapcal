@@ -1,8 +1,11 @@
 <%= month_calendar(attribute: :date, events: @photos )do |date, photos| %>
   <date><%= date.strftime( '%e' ) %></date>
 
-  <% photos.each do |photo| %>
-    <div style="background-image: url('<%= photo.image.url(:thumb) %>')">
-    </div>
+  <% if photos.any? %>
+    <% photos.each do |photo| %>
+      <a href="<%= edit_photo_url(photo.id) %>" style="background-image: url('<%= photo.image.url(:thumb) %>')"></a>
+    <% end %>
+  <% else %>
+    <a class="new" href="<%= new_photo_url %>"></a>
   <% end %>
 <% end %>
