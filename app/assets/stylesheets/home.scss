@@ -2,8 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+ul.menu {
+  position: relative;
+  padding: 20px 0; margin: 0;
+  list-style: none;
+
+  li {
+    display: inline-block;
+
+    &:last-of-type {
+      position: absolute;
+      right: 0;
+    }
+
+    a {
+      display: inline-block;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  }
+}
+
 .simple-calendar {
-  max-width: 900px;
   margin: 0 auto;
   text-align: center;
 
