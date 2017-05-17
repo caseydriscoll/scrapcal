@@ -1,0 +1,34 @@
+// Place all the styles related to the Prints controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.prints {
+  a {
+    display: block; float: left;
+    padding: 0; margin: 20px 0;
+    height: 400px; width: 300px;
+    border: 1px solid grey;
+
+    &:hover {
+      opacity: 1;
+      background-color: white;
+    }
+
+    &:nth-of-type(odd) {
+      border-right: none;
+
+      img {
+        float: right;
+      }
+    }
+
+    &:nth-of-type(even) {
+      border-left: none;
+    }
+
+    img {
+      width: 293.75px; height: 275px;
+      margin: 62.5px 0;
+    }
+  }
+}

@@ -13,6 +13,8 @@
       <ul class="menu">
       <% if user_signed_in? %>
         <li><%= link_to( 'Calendar', root_path ) %></li>
+        <li><%= link_to( 'Projects', projects_path ) %></li>
+        <li><%= link_to( 'Prints', prints_path ) %></li>
         <li><%= link_to( 'Photos', photos_path ) %></li>
         <% if flash[:notice]  %>
           <li class="notice"><%= notice %></li>
