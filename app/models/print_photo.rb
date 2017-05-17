@@ -1,0 +1,2 @@
+class PrintPhoto < ApplicationRecord
+end
