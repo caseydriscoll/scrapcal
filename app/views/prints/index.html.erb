@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Projects</h1>
+<h1>Prints</h1>
 
 <table>
   <thead>
@@ -11,11 +11,11 @@
   </thead>
 
   <tbody>
-    <% @projects.each do |project| %>
+    <% @prints.each do |print| %>
       <tr>
-        <td><%= project.title %></td>
-        <td><%= link_to 'Add Prints', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= print.title %></td>
+        <td><%= link_to 'Add Prints', edit_project_path(print) %></td>
+        <td><%= link_to 'Destroy', print, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -23,4 +23,4 @@
 
 <br>
 
-<%= link_to 'New Project', new_project_path %>
+<%= link_to 'New Print', new_print_path %>
