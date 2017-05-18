@@ -18,7 +18,7 @@
 
 
   <div class="field">
-    <h3>This Project <%= project.prints.count ? 'has' : 'have' %> <%= pluralize( project.prints.count, 'prints' ) %>. <%= link_to 'Add new Print', new_project_print_path( @project ) if ! @project.id.nil?  %></h3>
+    <h3>This Project <%= project.prints.count ? 'has' : 'have' %> <%= pluralize( project.prints.count, 'prints' ) %>. <%= link_to 'Add new Print', new_print_path %></h3>
   </div>
 
   <div class="actions">

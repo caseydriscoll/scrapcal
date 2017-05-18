@@ -1,4 +1,4 @@
 class Print < ApplicationRecord
-  has_many :projectprints
-  has_many :projects, :through => :course_students
+  has_many :project_print
+  has_many :projects, :through => :project_print
 end
