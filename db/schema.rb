@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170520173016) do
+ActiveRecord::Schema.define(version: 20170520181937) do
 
   create_table "photos", force: :cascade do |t|
     t.string   "title"
@@ -21,32 +21,6 @@ ActiveRecord::Schema.define(version: 20170520173016) do
     t.datetime "updated_at", null: false
     t.string   "image"
     t.index ["user_id"], name: "index_photos_on_user_id"
-  end
-
-  create_table "photos_prints", id: false, force: :cascade do |t|
-    t.integer  "print_id",   null: false
-    t.integer  "photo_id",   null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "prints", force: :cascade do |t|
-    t.string   "title"
-    t.integer  "projectprint_id"
-    t.integer  "printphoto_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.integer  "left_photo_id"
-    t.integer  "right_photo_id"
-    t.index ["printphoto_id"], name: "index_prints_on_printphoto_id"
-    t.index ["projectprint_id"], name: "index_prints_on_projectprint_id"
-  end
-
-  create_table "project_prints", id: false, force: :cascade do |t|
-    t.integer  "project_id", null: false
-    t.integer  "print_id",   null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "project_proofs", id: false, force: :cascade do |t|
