@@ -1,4 +1,5 @@
 class Project < ApplicationRecord
+
   has_many :project_proof
   has_many :proofs, :through => :project_proof
 
@@ -15,12 +16,12 @@ class Project < ApplicationRecord
     photos.each_with_index do |photo, index|
       if index.odd?
         even = photos[index - 1]
-        self.proofs.create(
+        proof = self.proofs.create(
                       title:          "Proof #{even.id}-#{photo.id}",
                       left_photo_id:  even.id,
                       right_photo_id: photo.id
                     )
-
+        proof.create_composite
       end
     end
 
