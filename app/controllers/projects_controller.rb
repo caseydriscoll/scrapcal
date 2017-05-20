@@ -39,10 +39,9 @@ class ProjectsController < ApplicationController
 
   # PATCH/PUT /projects/1/generate
   def generate
-    puts '>> in generate'
     respond_to do |format|
       if @project.generate
-        format.html { redirect_to @project, notice: 'Project successfully generated prints.' }
+        format.html { redirect_to @project, notice: 'Project successfully generated Proofs.' }
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
