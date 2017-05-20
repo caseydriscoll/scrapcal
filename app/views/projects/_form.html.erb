@@ -16,12 +16,19 @@
     <%= f.text_field :title %>
   </div>
 
-
   <div class="field">
-    <h3>This Project <%= project.prints.count ? 'has' : 'have' %> <%= pluralize( project.prints.count, 'prints' ) %>. <%= link_to 'Add new Print', new_project_print_path( @project ) if ! @project.id.nil?  %></h3>
+    <h3>This Project <%= project.proofs.count ? 'has' : 'have' %> <%= pluralize( project.proofs.count, 'proof' ) %>.</h3>
+    <%= link_to 'Add new Proof', new_project_proof_path( @project ) if ! @project.id.nil?  %>
   </div>
 
   <div class="actions">
     <%= f.submit %>
   </div>
+<% end %>
+
+
+<% if ! @project.id.nil? && project.proofs.count == 0 %>
+  <%= form_for(project, :url => {:action => "generate"}) do |f| %>
+      <%= button_to 'Generate all Proofs', id: project  %>
+  <% end %>
 <% end %>

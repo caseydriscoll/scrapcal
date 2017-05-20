@@ -8,6 +8,7 @@
 .env*
 config/secrets.yml
 
+public/docs
 public/uploads
 
 # Ignore bundler config.

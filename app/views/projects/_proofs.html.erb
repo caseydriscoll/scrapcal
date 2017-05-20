@@ -1,0 +1,13 @@
+<h3>This Project <%= project.proofs.count ? 'has' : 'have' %> <%= pluralize( project.proofs.count, 'Proof' ) %></h3>
+
+<ul class="proofs">
+  <% project.proofs.each do |proof| %>
+    <li class="proof">
+      <h4><%= proof.title %></h4>
+      <div class="container">
+        <%= image_tag Photo.find( proof.left_photo_id ).image.url(:thumb) if ! proof.left_photo_id.nil? %>
+        <%= image_tag Photo.find( proof.right_photo_id ).image.url(:thumb) if ! proof.right_photo_id.nil? %>
+      </div>
+    </li>
+  <% end %>
+</ul>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170517222112) do
+ActiveRecord::Schema.define(version: 20170520173016) do
 
   create_table "photos", force: :cascade do |t|
     t.string   "title"
@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 20170517222112) do
     t.integer  "printphoto_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "left_photo_id"
+    t.integer  "right_photo_id"
     t.index ["printphoto_id"], name: "index_prints_on_printphoto_id"
     t.index ["projectprint_id"], name: "index_prints_on_projectprint_id"
   end
@@ -47,12 +49,26 @@ ActiveRecord::Schema.define(version: 20170517222112) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "project_proofs", id: false, force: :cascade do |t|
+    t.integer  "project_id", null: false
+    t.integer  "proof_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string   "title"
-    t.integer  "projectprint_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["projectprint_id"], name: "index_projects_on_projectprint_id"
+    t.integer  "projectproof_id"
+  end
+
+  create_table "proofs", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "left_photo_id"
+    t.integer  "right_photo_id"
   end
 
   create_table "users", force: :cascade do |t|

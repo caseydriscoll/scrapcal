@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:generate, :show, :edit, :update, :destroy]
 
   # GET /projects
   # GET /projects.json
@@ -32,6 +32,20 @@ class ProjectsController < ApplicationController
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new }
+        format.json { render json: @project.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /projects/1/generate
+  def generate
+    puts '>> in generate'
+    respond_to do |format|
+      if @project.generate
+        format.html { redirect_to @project, notice: 'Project successfully generated prints.' }
+        format.json { render :show, status: :ok, location: @project }
+      else
+        format.html { render :edit }
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end

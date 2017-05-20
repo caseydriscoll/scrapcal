@@ -2,9 +2,9 @@
 
 <p>
   <%= @project.title %>
-
-  <h3>This Project <%= @project.prints.count ? 'has' : 'have' %> <%= pluralize( @project.prints.count, 'prints' ) %></h3>
 </p>
+
+<%= render 'proofs', project: @project %>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
