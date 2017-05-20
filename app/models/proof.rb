@@ -8,17 +8,26 @@ class Proof < ApplicationRecord
 
 
   def create_composite
-    filename  = "#{store_dir}/composite" + ".jpg"
     composite = ImageList.new
+    target    = Image.new( 880, 1200 ) { self.background_color = 'white' }
+    stub      = Image.new( 20, 1200 ) { self.background_color = 'white' }
 
-    left  = Image.read( Rails.public_path.to_s + Photo.find( self.left_photo_id ).image.url(:thumb) ) if ! self.left_photo_id.nil?
-    right = Image.read( Rails.public_path.to_s + Photo.find( self.right_photo_id ).image.url(:thumb) ) if ! self.right_photo_id.nil?
+    left  = Image.read( Rails.public_path.to_s + Photo.find( self.left_photo_id ).image.url(:proof) ).first if ! self.left_photo_id.nil?
+    right = Image.read( Rails.public_path.to_s + Photo.find( self.right_photo_id ).image.url(:proof) ).first if ! self.right_photo_id.nil?
 
-    composite.push( left.first ) if ! self.left_photo_id.nil?
-    composite.push( right.first ) if ! self.right_photo_id.nil?
+    composite << stub.copy
+    composite << target.composite( left, CenterGravity, AtopCompositeOp ) if ! self.left_photo_id.nil?
 
-    composite.append(false).write(  Rails.public_path.to_s + filename );
-    self.update( image: filename )
+    if self.right_photo_id.nil?
+      composite << target.copy
+    else
+      composite << target.composite( right, CenterGravity, CopyCompositeOp ) 
+    end
+
+    composite << stub.copy
+
+    composite.append(false).write( Rails.public_path.to_s + "#{store_dir}/composite" + ".jpg" );
+    composite.append(false).resize_to_fit( 300, 200 ).write( Rails.public_path.to_s + "#{store_dir}/thumb" + ".jpg" );
   end
 
   private

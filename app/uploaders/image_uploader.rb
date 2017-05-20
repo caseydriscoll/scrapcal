@@ -40,6 +40,14 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [500, 500]
   end
 
+  # 2 15/16 x 2 3/4
+  # 2.9375 x 2.75
+  # 881.25 x 825
+  version :proof do
+    process :auto_orient
+    process resize_to_fill: [880, 825]
+  end
+
   def auto_orient
     manipulate! do |img|
       img = img.auto_orient
