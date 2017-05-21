@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:generate, :show, :edit, :update, :destroy]
+  before_action :set_project, only: [:archive, :generate, :show, :edit, :update, :destroy]
 
   # GET /projects
   # GET /projects.json
@@ -7,8 +7,17 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
-  # GET /projects/1
-  # GET /projects/1.json
+  def archive
+    puts 'In ProjectsController#Archive'
+    @archive = @project.archive
+
+    if @archive[:success]
+      puts @archive.inspect
+      send_file Rails.public_path.to_s + @archive[:zip] # :type => "application/zip", :x_sendfile => true
+    end
+  end
+
+  # GET /projects/1.html
   def show
   end
 

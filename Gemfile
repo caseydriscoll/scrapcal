@@ -48,6 +48,7 @@ gem 'rmagick'
 gem 'carrierwave'
 gem 'exifr'
 
+gem 'rubyzip', require: 'zip'
 gem 'simple_calendar'
 
 group :development, :test do

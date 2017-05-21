@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  get   'home/index'
+  get   'projects/:id.zip', to: 'projects#archive'
+  patch 'projects/:id/generate', to: 'projects#generate'
+  put   'projects/:id/generate', to: 'projects#generate'
+
   resources :projects do
     resources :proofs
   end
@@ -6,10 +12,6 @@ Rails.application.routes.draw do
   resources :proofs
   resources :photos
 
-  get 'home/index'
-
-  patch 'projects/:id/generate', to: 'projects#generate'
-  put   'projects/:id/generate', to: 'projects#generate'
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
