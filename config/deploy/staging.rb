@@ -44,7 +44,7 @@ set :branch, 'stage'
 # Global options
 # --------------
 set :ssh_options, {
-  keys: %w(~/.ssh/capistrano.rsa),
+  keys: %w(~/.ssh/capistrano),
   port: 6753,
   forward_agent: false,
   auth_methods: %w(publickey)
